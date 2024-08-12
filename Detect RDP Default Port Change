@@ -1,0 +1,3 @@
+event_simpleName="RegSystemConfigValueUpdate" AND RegObjectName="*\RDP-Tcp" AND RegValueName="PortNumber" 
+| rename RegNumericValue_decimal as "NewRDPPort"
+| table timestamp, ComputerName, NewRDPPort
