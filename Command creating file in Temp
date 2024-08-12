@@ -1,0 +1,2 @@
+Search for any instances of suspicious file creation activities:
+event_simpleName:CreateFile AND event_type:file_created AND file_name:cmd.exe AND file_path:Temp\
