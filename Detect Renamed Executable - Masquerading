@@ -1,0 +1,5 @@
+event_simpleName="NewExecutableRenamed"
+| rename TargetFileName as ImageFileName
+| join ImageFileName 
+    [ search event_simpleName="ProcessRollup2" ]
+| table ComputerName SourceFileName ImageFileName CommandLine
