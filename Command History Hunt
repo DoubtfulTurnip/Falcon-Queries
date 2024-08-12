@@ -1,0 +1,4 @@
+event_simpleName=CommandHistory 
+|   join aid TargetProcessId_decimal [search UserName="*"
+     ] 
+| table _time ComputerName UserName WindowsTtitle WindowsStation  LocalAddressIP4 FileName ApplicationName CommandCount_decimal CommandHistory
