@@ -1,0 +1,2 @@
+List all processes with the keyword "nmap" in the command line:
+process_name:nmap*
