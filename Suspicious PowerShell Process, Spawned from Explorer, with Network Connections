@@ -1,0 +1,8 @@
+event_simpleName="DnsRequest"
+| rename ContextProcessId as TargetProcessId
+| join TargetProcessId 
+    [ search (event_simpleName="ProcessRollup2" OR event_simpleName="SyntheticProcessRollup2") AND FileName="explorer.exe" 
+    | rename TargetProcessId_decimal as ParentProcessId_decimal 
+    | join ParentProcessId_decimal 
+        [ search event_simpleName="ProcessRollup2" FileName="powershell.exe" ]] 
+| table ComputerName timestamp ImageFileName DomainName CommandLine
