@@ -1,0 +1,6 @@
+FileName="powershell.exe" 
+|  dedup CommandLine
+| rename CommandLine as ChildCommandLine
+| join    ParentProcessId_decimal 
+    [search event_simpleName=ProcessRollup*]
+| table ComputerName UserName FileName CommandLine ChildCommandLine 
