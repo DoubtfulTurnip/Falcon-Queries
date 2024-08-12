@@ -1,0 +1,4 @@
+event_platform=lin event_simpleName=CriticalEnvironmentVariableChanged, EnvironmentVariableName IN (SSH_CONNECTION, USER) 
+| eventstats list(EnvironmentVariableName) as EnvironmentVariableName,list(EnvironmentVariableValue) as EnvironmentVariableValue by aid, ContextProcessId_decimal
+| eval tempData=mvzip(EnvironmentVariableName,EnvironmentVariableValue,":") 
+| table ComputerName tempData
