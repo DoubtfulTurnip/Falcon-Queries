@@ -1,0 +1,4 @@
+ FileName=powershell.exe event_simpleName=ProcessRollup* 
+| dedup CommandLine 
+|  rare limit=50 _time ComputerName UserName  by CommandLine showcount=true 
+|  table _time ComputerName UserName CommandLine 
